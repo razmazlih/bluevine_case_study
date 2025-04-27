@@ -1,0 +1,16 @@
+run in terminal
+
+1. Create & activate a virtual environment:
+   python3 -m venv venv
+   source venv/bin/activate
+
+2. Install dependencies:
+   pip install requests pandas
+
+3. Run the script:
+   python3 solution.py
+
+   This will:
+     • Fetch and cache data in cache.json
+     • Build answers.txt with all 12 answers
+     • Print the answers to the console
