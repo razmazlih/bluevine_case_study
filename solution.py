@@ -28,7 +28,7 @@ TIMEOUT = 1.5  # seconds
 DELAY = 0.1  # seconds between requests
 
 
-# ─── Load ISBN list ───────────────────────────────────────────────────────
+# ─── Create ISBN list ───────────────────────────────────────────────────────
 def load_isbns(path):
     with open(path, "r", encoding="utf-8") as f:
         return [line.strip() for line in f if line.strip()]
@@ -47,7 +47,7 @@ def save_cache(cache, path):
         json.dump(cache, f, ensure_ascii=False, indent=2)
 
 
-# ─── Fetch raw book data ─────────────────────────────────────────────────
+# ─── Fetch book data ─────────────────────────────────────────────────
 def fetch_book_data(isbn, cache):
     if isbn in cache:
         return cache[isbn]
@@ -134,9 +134,7 @@ def create_dataframe(records):
 
     df["publish_date"] = pd.to_datetime(df["publish_date"], errors="coerce")
     df["last_modified"] = pd.to_datetime(df["last_modified"], errors="coerce")
-
-    df.to_csv("books.csv", index=False)
-
+    
     df = df.drop_duplicates(subset=["isbn"])
 
     return df
@@ -162,14 +160,17 @@ def answer_four(df):
     return df[df["authors"].map(len) > 1].shape[0]
 
 # 5. What is the number of books published per publisher? 
+def clean_publisher_name(name):
+    bad_words = ['publisher', 'publishers', 'pub', 'limited', 'ltd', 'press', 'inc.', 'inc', 'corp.', 'corp', 'co.', 'co', 's']
+    name = name.lower()
+    pattern = r'\b(?:' + '|'.join(re.escape(word) for word in bad_words) + r')\b'
+    name = re.sub(pattern, '', name)
+    return ' '.join(name.split()).strip()
+
 def answer_five(df):
-    publisher_counts = (
-        df.explode("publishers")
-        .groupby("publishers")
-        .size()
-        .sort_values(ascending=False)
-    )
-    return publisher_counts.to_dict()
+    publishers = df.explode("publishers")["publishers"].dropna().apply(clean_publisher_name)
+    counts = publishers.value_counts()
+    return counts.to_dict()
 
 # 6. What is the median number of pages for books in this list? 
 def answer_six(df):
@@ -179,8 +180,8 @@ def answer_six(df):
 def answer_seven(df):
     month_counts = df["publish_date"].dt.month.value_counts()
     if not month_counts.empty:
-        best_month_num = int(month_counts.idxmax())
-        best_month_name = datetime(1900, best_month_num, 1).strftime("%B")
+        best_month_num = int(month_counts.idxmax()) # month number
+        best_month_name = datetime(1900, best_month_num, 1).strftime("%B") # month name
         return (best_month_name, int(month_counts.max()))
     else:
         return (None, 0)

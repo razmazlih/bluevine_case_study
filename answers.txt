@@ -3,215 +3,194 @@
 3. Books without Goodreads ID: 662
 4. Books with more than one author: 128
 5. Books per publisher:
-   - HarperCollins Publishers: 77
-   - HarperCollins: 76
-   - Orbit: 52
-   - Voyager: 26
-   - Harper & Row: 22
-   - Vintage: 22
-   - Del Rey: 21
-   - Oxford University Press: 20
-   - Warner Books: 19
-   - Bantam Books: 15
-   - Harper Voyager: 15
-   - Eos: 15
-   - Ballantine Books: 13
-   - HarperCollins Publishers Limited: 12
-   - Franklin Classics: 12
-   - Random House Publishing Group: 11
-   - Putnam: 10
-   - HarperTrophy: 9
-   - Doubleday: 9
-   - Ace Books: 8
-   - Grand Central Publishing: 7
-   - HarperAudio: 7
-   - Caedmon: 7
-   - HarperPrism: 7
-   - HarperVoyager: 6
-   - HarperTorch: 6
-   - Open Road Integrated Media, Inc.: 6
-   - Penguin Books, Limited: 6
-   - Perennial: 6
-   - Vintage Books: 6
-   - Hodder & Stoughton: 5
-   - Pan Books: 5
-   - Harper Perennial: 5
-   - Harper Collins UK: 5
-   - Penguin Random House: 5
-   - Tor Books: 5
-   - Harpercollins: 5
+   - harpercollins: 177
+   - orbit: 52
+   - voyager: 27
+   - harper & row: 22
+   - vintage: 22
+   - del rey: 21
+   - oxford university: 20
+   - warner books: 19
+   - eos: 18
+   - harper voyager: 16
+   - bantam books: 15
+   - ballantine books: 13
+   - franklin classics: 12
+   - harper collins: 11
+   - random house publishing group: 11
+   - putnam: 10
+   - doubleday: 9
+   - harpertrophy: 9
+   - ace books: 8
+   - grand central publishing: 7
+   - harperaudio: 7
+   - harperprism: 7
+   - caedmon: 7
+   - harpervoyager: 6
+   - open road integrated media, .: 6
+   - penguin books,: 6
+   - vintage books: 6
+   - perennial: 6
+   - hodder & stoughton: 6
+   - harpertorch: 6
+   - harper collins uk: 5
+   - tor books: 5
+   - perfectbound: 5
    - imusti: 5
-   - Perfectbound: 4
-   - Harpercollins Pub Ltd: 4
-   - T. Doherty Associates: 4
-   - Harper Collins: 4
-   - Sidgwick and Jackson: 4
-   - St. Martin's Press: 3
-   - Gollancz: 3
-   - Anchor Books: 3
-   - MIT Press: 3
-   - Vintage Classics: 3
-   - Forgotten Books: 3
-   - Orion Publishing Group, Limited: 3
-   - Fiction: 3
-   - Sphere: 3
-   - EOS: 3
-   - Warner: 3
-   - Oxford University Press, USA: 3
-   - Harper: 3
-   - HarperPerennial: 3
-   - Hodder & Stoughton Paperbacks: 3
-   - Harper Collins Publishers: 3
-   - Bantam: 3
-   - MLBD: 2
-   - Tom Doherty Associates: 2
-   - Tor: 2
-   - Harper Collins/Voyager: 2
-   - HarperCollins Children's Books: 2
-   - Spectra: 2
-   - HarperCollins Audio: 2
-   - HarperCollins Pub.: 2
-   - Sidg. & J: 2
-   - Little, Brown Book Group Limited: 2
-   - HarperCollinsChildrensBooks: 2
-   - Holt, Rinehart and Winston: 2
-   - Random House Audio: 2
-   - Harper Collins - Voyager: 2
-   - New English Library Ltd: 2
-   - Harpercollins Publishers: 2
-   - HARPER COLLINS: 2
-   - Voyager / HarperCollins: 2
-   - Avon: 2
-   - William Morrow: 2
-   - Fourth Estate: 2
-   - Ballantine: 2
-   - Orb: 2
-   - Ecco: 2
-   - Ballantine Del Rey: 2
-   - Del Rey Books: 2
-   - Penguin Books: 2
-   - Harper  Collins: 2
-   - Turtleback: 2
-   - Penguin: 2
-   - Doubleday Canada: 2
-   - Random  House Large Print: 1
-   - Penguin Books Ltd: 1
-   - RANDOM HOUSE US: 1
-   - Penguin Adult HC/TR: 1
-   - Popular Library: 1
-   - Putnam Adult: 1
-   - Arrow Books Ltd: 1
-   - Penguin Classics: 1
-   - Random House: 1
-   - Puffin Books: 1
-   - Penguin Random House LLC.: 1
-   - Aspect: 1
-   - Perennial Classics: 1
-   - Puffin: 1
-   - PerfectBound: 1
-   - Prime Books: 1
-   - Aspect/Warner Books: 1
-   - Signet: 1
-   - Random House Export Editions: 1
-   - Victor Gollancz: 1
+   - pan books: 5
+   - penguin random house: 5
+   - harper perennial: 5
+   - new english library: 4
+   - sidgwick and jackson: 4
+   - t. doherty associates: 4
+   - st. martin': 3
+   - gollancz: 3
+   - hodder & stoughton paperbacks: 3
+   - warner: 3
+   - penguin books: 3
+   - oxford university , usa: 3
+   - sphere: 3
+   - forgotten books: 3
+   - orion publishing group,: 3
+   - mit: 3
+   - harperperennial: 3
+   - vintage classics: 3
+   - fiction: 3
+   - bantam: 3
+   - harper: 3
+   - anchor books: 3
+   - harpercollins children' books: 2
+   - william morrow: 2
+   - turtleback: 2
+   - arkham house: 2
+   - tor: 2
+   - orb: 2
+   - voyager / harpercollins: 2
+   - harpercollinschildrensbooks: 2
+   - doubleday canada: 2
+   - ballantine del rey: 2
+   - tom doherty associates: 2
+   - ballantine: 2
+   - berkley . . : distributed by putnam: 2
+   - holt, rinehart and winston: 2
+   - harper collins - voyager: 2
+   - harpercollins .: 2
+   - little, brown book group: 2
+   - mlbd: 2
+   - macmillan: 2
+   - sidgwick & jackson: 2
+   - sidg. & j: 2
+   - avon: 2
+   - random house audio: 2
+   - penguin: 2
+   - del rey books: 2
+   - fourth estate: 2
+   - spectra: 2
+   - ecco: 2
+   - harper collins/voyager: 2
+   - harpercollins audio: 2
+   - puffin books: 1
+   - ballatine books: 1
+   - berkley . . , distributed by putnam: 1
+   - putnam adult: 1
+   - clarendon: 1
+   - pan books .: 1
+   - schools: 1
+   - ace books, .: 1
+   - pan: 1
+   - brand: del rey: 1
+   - dobson: 1
+   - dobson books: 1
+   - balzer + bray: 1
+   - puffin: 1
+   - little, brown books for young readers: 1
+   - the mit: 1
+   - bca ( book club associates ): 1
+   - windsor: 1
+   - anchor: 1
+   - penguin random house llc.: 1
+   - brand: turtleback: 1
+   - turtleback books: 1
+   - random house large print: 1
+   - anchor canada: 1
+   - random house us: 1
+   - vintage español: 1
+   - books on tape: 1
+   - random house export editions: 1
+   - brand: harper voyager: 1
+   - harper collins 0: 1
+   - western publishing company golden books: 1
+   - sterling publishing ., .: 1
+   - collins: 1
+   - livros da voyager (reino unido) e spectra (eua): 1
+   - distributed by putnam: 1
+   - orbit science fiction: 1
+   - voyager / harper collins: 1
+   - new york graphic society: 1
+   - pearson longman: 1
+   - longman: 1
+   - bedford/st. martin': 1
+   - bedford books: 1
+   - palgrave macmillan: 1
+   - berkley: 1
+   - eyre methuen: 1
+   - berkley . .: 1
+   - vintage books usa: 1
+   - signet: 1
+   - aspect/warner books: 1
+   - aspect: 1
+   - popular library: 1
+   - ace: 1
+   - perennial classics: 1
+   - flamingo: 1
+   - harper & row,: 1
+   - harper collins usa: 1
+   - harper voyager harper collins: 1
+   - harper collins paperbacks: 1
+   - harper. 1 paperback(): 1
+   - grafton: 1
+   - harper collins.india: 1
+   - pearson english language teaching: 1
+   - harper children' audio: 1
+   - harperchildren' audio: 1
+   - corgi books (twld): 1
+   - harpercollins,: 1
+   - william morrow & , .: 1
+   - harpercollins childrens books: 1
+   - titan graphic novels: 1
+   - random house: 1
+   - arrow books: 1
+   - hutchinson: 1
+   - totem books: 1
+   - harperprism, a division of harpercollins: 1
+   - penguin adult hc/tr: 1
+   - random house uk (a division of random house group): 1
+   - g.p. putnam' sons: 1
+   - del ray: 1
+   - hodderscape: 1
+   - coronet australia: 1
+   - tor: tom doherty associates: 1
+   - penguin classics: 1
+   - william morrow paperbacks: 1
+   - bujold, lois mcmaster: 1
+   - new englishlibrary: 1
+   - bluejay books: 1
+   - bantam 2002: 1
+   - prime books: 1
+   - g k hall &: 1
+   - gregg: 1
    - ereads.com: 1
-   - Windsor: 1
-   - William Morrow Paperbacks: 1
-   - William Morrow & Co, Inc.: 1
-   - Western Publishing Company Golden books: 1
-   - Ace Books, Inc.: 1
-   - Voyager / Harper Collins: 1
-   - Anchor: 1
-   - Vintage Español: 1
-   - Vintage Books USA: 1
-   - Anchor Canada: 1
-   - Viking Juvenile: 1
-   - Viking: 1
-   - VOYAGER: 1
-   - Arkham House Publishers: 1
-   - Turtleback Books: 1
-   - Totem Books: 1
-   - Tor: Tom Doherty Associates: 1
-   - Arkham House: 1
-   - The MIT Press: 1
-   - TITAN GRAPHIC NOVELS: 1
-   - Sterling Publishing Co., Inc.: 1
-   - Pearson English Language Teaching: 1
-   - Sidgwick & Jackson Ltd: 1
-   - Sidgwick & Jackson: 1
-   - Schools: 1
-   - SFBC Science Fiction Printing: 1
-   - Random House UK Ltd (A Division of Random House Group): 1
-   - Pearson Longman: 1
-   - Clarendon Press: 1
-   - Paragon: 1
-   - Harper Children's Audio: 1
-   - Gregg Press: 1
-   - HARPER COLLINS 0 PUB: 1
-   - HARPER VOYAGER: 1
-   - HODDER & STOUGHTON LTD: 1
-   - Brand: Ballantine Del Rey: 1
-   - Harper & Row, Publishers: 1
-   - Harper Collins Paperbacks: 1
-   - Pan Books Ltd.: 1
-   - Books On Tape: 1
-   - Harper Collins USA: 1
-   - Harper Collins.India: 1
-   - Bluejay Books: 1
-   - Berkley Publications: 1
-   - Harper Voyager Harper Collins Publishers: 1
-   - Brand: Del Rey: 1
-   - Grafton: 1
-   - G.P. Putnam's Sons: 1
-   - G K Hall & Co: 1
-   - Brand: Harper Voyager: 1
-   - Flamingo: 1
-   - Firebird: 1
-   - Eyre Methuen: 1
-   - Brand: Turtleback: 1
-   - Bujold, Lois McMaster: 1
-   - Dobson Books: 1
-   - Dobson: 1
-   - Distributed by St. Martin's Press: 1
-   - Distributed by Putnam: 1
-   - CORGI BOOKS (TWLD): 1
-   - Del Ray: 1
-   - Coronet Australia: 1
-   - Harper. 1 Paperback(s): 1
-   - Berkley Pub. Corp. : distributed by Putnam: 1
-   - HarperChildren's Audio: 1
-   - Longman: 1
-   - Pan Books / Macmillan: 1
-   - BALLATINE BOOKS: 1
-   - Pan: 1
-   - Palgrave Macmillan: 1
-   - BCA ( Book Club Associates ): 1
-   - Orbit Science Fiction: 1
-   - Orb Books: 1
-   - New York Graphic Society: 1
-   - New EnglishLibrary: 1
-   - Collins: 1
-   - New English Library: 1
-   - New English LIbrary: 1
-   - Macmillan Pub Co: 1
-   - Macmillan: 1
-   - Livros da Voyager (Reino Unido) e Spectra (EUA): 1
-   - Berkley Pub. Corp.: 1
-   - Little, Brown Books for Young Readers: 1
-   - Hutchinson: 1
-   - Hodderscape: 1
-   - Balzer + Bray: 1
-   - Bantam 2002: 1
-   - Bedford Books: 1
-   - Bedford/St. Martin's: 1
-   - HarperPrism, a division of HarperCollins Publishers: 1
-   - Berkley: 1
-   - HarperCollins, Publishers: 1
-   - Berkley Pub. Co. , distributed by Putnam: 1
-   - Berkley Pub. Co. : distributed by Putnam: 1
-   - HarperCollins Publisher: 1
-   - HarperCollins Childrens Books: 1
-   - Ace: 1
+   - sfbc science fiction printing: 1
+   - viking: 1
+   - viking juvenile: 1
+   - victor gollancz: 1
+   - berkley publications: 1
+   - brand: ballantine del rey: 1
+   - pan books / macmillan: 1
+   - distributed by st. martin': 1
+   - orb books: 1
+   - firebird: 1
+   - paragon: 1
 6. Median number of pages: 339.0
 7. Month with most published books: May (42 books)
 8. Longest word length: 18 Words: ['disastrousfranklin']
