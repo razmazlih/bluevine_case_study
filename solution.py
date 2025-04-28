@@ -183,23 +183,18 @@ def compute_answers(records):
         answers[7] = (None, 0)
 
     # Q8
-   # יוצרים טקסט מאוחד
     combined_text = (
         df["description"].fillna("") + " " + df["first_sentence"].fillna("")
     ).astype(str)
 
-    # מנקים סימני פיסוק גם בטקסט וגם במילים
     stripped_combined = combined_text.str.lower().apply(lambda txt: re.sub(r"[^\w\s]", "", txt.replace("-", " ")))
-    
-    # פיצול למילים
+
     words = stripped_combined.str.split().explode().dropna()
 
-    # חישוב המילה הארוכה ביותר
     unique_words = words.unique().tolist()
     longest_len = max((len(w) for w in unique_words), default=0)
     longest_words = [w for w in unique_words if len(w) == longest_len]
 
-    # חיפוש המילה הארוכה בטקסטים המנוקים
     book_matches = []
 
     if longest_words:
@@ -211,7 +206,6 @@ def compute_answers(records):
                         book_matches.append(title)
                     break
 
-    # הסרת כפילויות
     book_matches = list(set(book_matches))
 
     answers[8] = {
@@ -221,17 +215,13 @@ def compute_answers(records):
     }
 
     # Q9
-    # השלב הראשון - להוריד ספרים שאין להם publish_date תקני
     valid_dates_df = df.dropna(subset=["publish_date"])
 
-    # אם אין אף ספר עם תאריך תקני
     if valid_dates_df.empty:
         answers[9] = (None, None)
     else:
-        # נסה לסדר לפי publish_date בצורה יורדת
         valid_dates_df = valid_dates_df.sort_values("publish_date", ascending=False)
 
-        # קח את השורה הראשונה אחרי המיון
         latest_book = valid_dates_df.iloc[0]
 
         answers[9] = (latest_book["title"], latest_book["publish_date"].date())
