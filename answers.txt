@@ -1,111 +1,113 @@
-1. Number of different books: 461
+1. Number of different books: 472
 2. Book with most ISBNs: The Night Circus (14 ISBNs)
-3. Books without Goodreads ID: 662
-4. Books with more than one author: 128
+3. Books without Goodreads ID: 654
+4. Books with more than one author: 129
 5. Books per publisher:
    - harpercollins: 177
    - orbit: 52
-   - voyager: 27
+   - voyager: 31
    - harper & row: 22
    - vintage: 22
    - del rey: 21
+   - warner books: 20
    - oxford university: 20
-   - warner books: 19
    - eos: 18
-   - harper voyager: 16
+   - harper voyager: 18
    - bantam books: 15
    - ballantine books: 13
    - franklin classics: 12
-   - harper collins: 11
    - random house publishing group: 11
+   - harper collins: 11
    - putnam: 10
    - doubleday: 9
    - harpertrophy: 9
    - ace books: 8
+   - vintage books: 7
    - grand central publishing: 7
    - harperaudio: 7
-   - harperprism: 7
    - caedmon: 7
+   - harperprism: 7
    - harpervoyager: 6
-   - open road integrated media, .: 6
-   - penguin books,: 6
-   - vintage books: 6
    - perennial: 6
-   - hodder & stoughton: 6
+   - penguin books,: 6
    - harpertorch: 6
-   - harper collins uk: 5
-   - tor books: 5
-   - perfectbound: 5
-   - imusti: 5
-   - pan books: 5
-   - penguin random house: 5
+   - hodder & stoughton: 6
+   - pan books: 6
+   - penguin random house: 6
+   - open road integrated media, .: 6
    - harper perennial: 5
-   - new english library: 4
+   - tor books: 5
+   - imusti: 5
+   - harper collins uk: 5
+   - perfectbound: 5
    - sidgwick and jackson: 4
    - t. doherty associates: 4
+   - vintage classics: 4
+   - new english library: 4
    - st. martin': 3
-   - gollancz: 3
+   - orion publishing group,: 3
    - hodder & stoughton paperbacks: 3
    - warner: 3
    - penguin books: 3
    - oxford university , usa: 3
-   - sphere: 3
-   - forgotten books: 3
-   - orion publishing group,: 3
+   - gollancz: 3
    - mit: 3
+   - forgotten books: 3
+   - sphere: 3
    - harperperennial: 3
-   - vintage classics: 3
    - fiction: 3
-   - bantam: 3
    - harper: 3
+   - bantam: 3
    - anchor books: 3
    - harpercollins children' books: 2
+   - del rey books: 2
+   - harpercollins .: 2
    - william morrow: 2
-   - turtleback: 2
-   - arkham house: 2
    - tor: 2
+   - turtleback: 2
    - orb: 2
-   - voyager / harpercollins: 2
    - harpercollinschildrensbooks: 2
-   - doubleday canada: 2
+   - arkham house: 2
+   - clarendon: 2
+   - harper collins - voyager: 2
    - ballantine del rey: 2
-   - tom doherty associates: 2
    - ballantine: 2
    - berkley . . : distributed by putnam: 2
    - holt, rinehart and winston: 2
-   - harper collins - voyager: 2
-   - harpercollins .: 2
-   - little, brown book group: 2
-   - mlbd: 2
+   - tom doherty associates: 2
    - macmillan: 2
+   - voyager / harpercollins: 2
+   - random house audio: 2
+   - harper collins/voyager: 2
    - sidgwick & jackson: 2
    - sidg. & j: 2
    - avon: 2
-   - random house audio: 2
+   - mlbd: 2
    - penguin: 2
-   - del rey books: 2
-   - fourth estate: 2
    - spectra: 2
+   - fourth estate: 2
    - ecco: 2
-   - harper collins/voyager: 2
    - harpercollins audio: 2
-   - puffin books: 1
-   - ballatine books: 1
-   - berkley . . , distributed by putnam: 1
-   - putnam adult: 1
-   - clarendon: 1
-   - pan books .: 1
-   - schools: 1
-   - ace books, .: 1
-   - pan: 1
+   - doubleday canada: 2
+   - little, brown book group: 2
    - brand: del rey: 1
-   - dobson: 1
+   - distributed by putnam: 1
+   - berkley: 1
+   - puffin: 1
+   - berkley . . , distributed by putnam: 1
+   - pan: 1
+   - putnam adult: 1
    - dobson books: 1
    - balzer + bray: 1
-   - puffin: 1
+   - ace books, .: 1
+   - pan books .: 1
+   - schools: 1
+   - ballatine books: 1
+   - dobson: 1
+   - puffin books: 1
    - little, brown books for young readers: 1
    - the mit: 1
-   - bca ( book club associates ): 1
+   - western publishing company golden books: 1
    - windsor: 1
    - anchor: 1
    - penguin random house llc.: 1
@@ -118,12 +120,11 @@
    - books on tape: 1
    - random house export editions: 1
    - brand: harper voyager: 1
+   - bca ( book club associates ): 1
    - harper collins 0: 1
-   - western publishing company golden books: 1
    - sterling publishing ., .: 1
    - collins: 1
    - livros da voyager (reino unido) e spectra (eua): 1
-   - distributed by putnam: 1
    - orbit science fiction: 1
    - voyager / harper collins: 1
    - new york graphic society: 1
@@ -132,10 +133,11 @@
    - bedford/st. martin': 1
    - bedford books: 1
    - palgrave macmillan: 1
-   - berkley: 1
-   - eyre methuen: 1
    - berkley . .: 1
-   - vintage books usa: 1
+   - eyre methuen: 1
+   - penguin adult hc/tr: 1
+   - harper. 1 paperback(): 1
+   - totem books: 1
    - signet: 1
    - aspect/warner books: 1
    - aspect: 1
@@ -147,8 +149,8 @@
    - harper collins usa: 1
    - harper voyager harper collins: 1
    - harper collins paperbacks: 1
-   - harper. 1 paperback(): 1
    - grafton: 1
+   - putnam group: 1
    - harper collins.india: 1
    - pearson english language teaching: 1
    - harper children' audio: 1
@@ -161,10 +163,10 @@
    - random house: 1
    - arrow books: 1
    - hutchinson: 1
-   - totem books: 1
+   - vintage books usa: 1
    - harperprism, a division of harpercollins: 1
-   - penguin adult hc/tr: 1
    - random house uk (a division of random house group): 1
+   - firebird: 1
    - g.p. putnam' sons: 1
    - del ray: 1
    - hodderscape: 1
@@ -174,6 +176,7 @@
    - william morrow paperbacks: 1
    - bujold, lois mcmaster: 1
    - new englishlibrary: 1
+   - warner aspect: 1
    - bluejay books: 1
    - bantam 2002: 1
    - prime books: 1
@@ -189,10 +192,9 @@
    - pan books / macmillan: 1
    - distributed by st. martin': 1
    - orb books: 1
-   - firebird: 1
    - paragon: 1
-6. Median number of pages: 339.0
-7. Month with most published books: May (42 books)
+6. Median number of pages: 340.0
+7. Month with most published books: May (44 books)
 8. Longest word length: 18 Words: ['disastrousfranklin']
    Appears in title: Strange Things
 9. Most recently published book: Dearly - 2021-11-02

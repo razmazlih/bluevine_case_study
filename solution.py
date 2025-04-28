@@ -322,7 +322,7 @@ def main():
         raw = fetch_book_data(isbn, cache)
         records.append(flatten_record(isbn, raw))
 
-    # Persist updated cache
+    # Update cache
     save_cache(cache, CACHE_FILE)
 
     # Compute answers
