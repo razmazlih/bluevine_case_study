@@ -108,7 +108,6 @@ def flatten_record(isbn, data):
     record["goodreads_ids"] = data.get("identifiers", {}).get("goodreads", [])
     record["last_modified"] = data.get("last_modified", {}).get("value", None)
 
-    # Handle description (may be dict or str)
     ds = data.get("description")
     if isinstance(ds, dict):
         record["description"] = ds.get("value", "")
@@ -116,7 +115,6 @@ def flatten_record(isbn, data):
         record["description"] = ds
 
 
-   # First Sentence (from excerpts)
     excerpts = data.get("excerpts", [])
     if isinstance(excerpts, list):
         for excerpt in excerpts:
@@ -128,61 +126,67 @@ def flatten_record(isbn, data):
 
 
 # ─── Step 5: Process all ISBNs and compute answers ───────────────────────────────
-def compute_answers(records):
+def create_dataframe(records):
     """
-    Build a DataFrame, compute answers to questions 1–12,
-    and return them in a structured dict.
+    Build a DataFrame from the list of records.
     """
     df = pd.DataFrame(records)
 
-    # Convert date strings to datetime
     df["publish_date"] = pd.to_datetime(df["publish_date"], errors="coerce")
     df["last_modified"] = pd.to_datetime(df["last_modified"], errors="coerce")
 
     df.to_csv("books.csv", index=False)
 
-    # Remove any duplicate ISBN rows
     df = df.drop_duplicates(subset=["isbn"])
 
-    answers = {}
+    return df
 
-    # Q1
-    answers[1] = df["title"].nunique()
 
-    # Q2
+# 1. How many different books are in the list? 
+def answer_one(df):
+    return df["title"].nunique()
+
+# 2. What is the book with the most number of different ISBNs? 
+def answer_two(df):
     title_counts = df.groupby("title")["isbn"].count()
     top_title = title_counts.idxmax()
     top_count = title_counts.max()
-    answers[2] = (top_title, top_count)
+    return top_title, top_count
 
-    # Q3
-    answers[3] = df[df["goodreads_ids"].map(len) == 0].shape[0]
+# 3. How many books don’t have a goodreads id? 
+def answer_three(df):
+    return df[df["goodreads_ids"].map(len) == 0].shape[0]
 
-    # Q4
-    answers[4] = df[df["authors"].map(len) > 1].shape[0]
+# 4. How many books have more than one author? 
+def answer_four(df):
+    return df[df["authors"].map(len) > 1].shape[0]
 
-    # Q5
+# 5. What is the number of books published per publisher? 
+def answer_five(df):
     publisher_counts = (
         df.explode("publishers")
         .groupby("publishers")
         .size()
         .sort_values(ascending=False)
     )
-    answers[5] = publisher_counts.to_dict()
+    return publisher_counts.to_dict()
 
-    # Q6
-    answers[6] = df["number_of_pages"].dropna().median()
+# 6. What is the median number of pages for books in this list? 
+def answer_six(df):
+    return df["number_of_pages"].dropna().median()
 
-    # Q7
+# 7. What is the month with the most number of published books? 
+def answer_seven(df):
     month_counts = df["publish_date"].dt.month.value_counts()
     if not month_counts.empty:
         best_month_num = int(month_counts.idxmax())
         best_month_name = datetime(1900, best_month_num, 1).strftime("%B")
-        answers[7] = (best_month_name, int(month_counts.max()))
+        return (best_month_name, int(month_counts.max()))
     else:
-        answers[7] = (None, 0)
+        return (None, 0)
 
-    # Q8
+# 8. What is/are the longest word/s that appear/s either in a book’s description or in the first sentence of a book? In which book (title) it appears? 
+def answer_eight(df):
     combined_text = (
         df["description"].fillna("") + " " + df["first_sentence"].fillna("")
     ).astype(str)
@@ -208,39 +212,44 @@ def compute_answers(records):
 
     book_matches = list(set(book_matches))
 
-    answers[8] = {
+    answer =  {
         "length": longest_len,
         "words": longest_words,
         "titles": book_matches,
     }
+    return answer
 
-    # Q9
+# 9. What was the last book published in the list? 
+def answer_nine(df):
     valid_dates_df = df.dropna(subset=["publish_date"])
 
     if valid_dates_df.empty:
-        answers[9] = (None, None)
+        return (None, None)
     else:
         valid_dates_df = valid_dates_df.sort_values("publish_date", ascending=False)
 
         latest_book = valid_dates_df.iloc[0]
 
-        answers[9] = (latest_book["title"], latest_book["publish_date"].date())
+        return (latest_book["title"], latest_book["publish_date"].date())
 
-    # Q10
-    answers[10] = int(df["last_modified"].dt.year.value_counts().idxmax())
+# 10. What is the year of the most updated entry in the list? 
+def answer_ten(df):
+    return int(df["last_modified"].dt.year.value_counts().idxmax())
 
-    # Q11
+# 11. What is the title of the second published book for the author with the highest number of different titles in the list? 
+def answer_eleven(df):
     author_title_counts = df.explode("authors").groupby("authors")["title"].nunique()
     if not author_title_counts.empty:
         top_author = author_title_counts.idxmax()
         author_books = df[
             df["authors"].apply(lambda lst: top_author in lst)
         ].sort_values("publish_date")
-        answers[11] = author_books.iloc[1]["title"] if len(author_books) > 1 else None
+        return author_books.iloc[1]["title"] if len(author_books) > 1 else None
     else:
-        answers[11] = None
+        return None
 
-    # Q12
+# 12. What is the pair of (publisher, author) with the highest number of books published? 
+def answer_twelve(df):
     pair_counts = (
         df.explode("publishers")
         .explode("authors")
@@ -250,11 +259,10 @@ def compute_answers(records):
     if not pair_counts.empty:
         top_pair = pair_counts.idxmax()
         top_pair_count = int(pair_counts.max())
-        answers[12] = (top_pair, top_pair_count)
+        return (top_pair, top_pair_count)
     else:
-        answers[12] = (None, 0)
-
-    return answers
+        return (None, 0)
+    
 
 
 # ─── Step 6: Write answers to file ────────────────────────────────────────────────
@@ -317,7 +325,24 @@ def main():
     save_cache(cache, CACHE_FILE)
 
     # Compute answers
-    answers = compute_answers(records)
+    df = create_dataframe(records)
+
+    answers = {
+        1: answer_one(df),
+        2: answer_two(df),
+        3: answer_three(df),
+        4: answer_four(df),
+        5: answer_five(df),
+        6: answer_six(df),
+        7: answer_seven(df),
+        8: answer_eight(df),
+        9: answer_nine(df),
+        10: answer_ten(df),
+        11: answer_eleven(df),
+        12: answer_twelve(df),
+    }
+
+
 
     # Save and display answers
     save_answers(answers, OUTPUT_FILE)
