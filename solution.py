@@ -137,8 +137,6 @@ def create_dataframe(records):
     
     df = df.drop_duplicates(subset=["isbn"])
 
-    df.to_csv("books.csv", index=False, encoding="utf-8")
-
     return df
 
 
@@ -218,7 +216,7 @@ def answer_eight(df):
     answer =  {
         "length": longest_len,
         "words": longest_words,
-        "titles": book_matches[0],
+        "titles": book_matches[0] if book_matches else None,
     }
     return answer
 
