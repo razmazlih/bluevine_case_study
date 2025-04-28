@@ -215,7 +215,7 @@ def answer_eight(df):
     answer =  {
         "length": longest_len,
         "words": longest_words,
-        "titles": book_matches,
+        "titles": book_matches[0],
     }
     return answer
 
@@ -294,7 +294,7 @@ def save_answers(answers, path):
             "Words:",
             answers[8]["words"],
         )
-        writeln("   Appears in titles:", answers[8]["titles"])
+        writeln("   Appears in title:", answers[8]["titles"])
         writeln("9. Most recently published book:", answers[9][0], "-", answers[9][1])
         writeln("10. Year of most updated entry:", answers[10])
         writeln("11. Second book for top author:", answers[11])
