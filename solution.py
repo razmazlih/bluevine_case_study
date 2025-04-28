@@ -28,7 +28,7 @@ TIMEOUT = 1.5  # seconds
 DELAY = 0.1  # seconds between requests
 
 
-# ─── Create ISBN list ───────────────────────────────────────────────────────
+# ─── Load ISBN list ───────────────────────────────────────────────────────
 def load_isbns(path):
     with open(path, "r", encoding="utf-8") as f:
         return [line.strip() for line in f if line.strip()]
