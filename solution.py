@@ -63,11 +63,12 @@ def fetch_book_data(isbn, cache):
 
         if data and "key" in data:
             key = data["key"]
-            details_url = f"https://openlibrary.org{key}.json"
+            details_url = f"https://openlibrary.org/{key}.json"
             details_response = requests.get(details_url, timeout=TIMEOUT)
             details_response.raise_for_status()
             details_data = details_response.json()
             data["last_modified"] = details_data.get("last_modified", {})
+            data["description"] = details_data.get("description", {})
     except requests.RequestException:
         data = None
 
@@ -107,6 +108,13 @@ def flatten_record(isbn, data):
     record["goodreads_ids"] = data.get("identifiers", {}).get("goodreads", [])
     record["last_modified"] = data.get("last_modified", {}).get("value", None)
 
+    # Handle description (may be dict or str)
+    ds = data.get("description")
+    if isinstance(ds, dict):
+        record["description"] = ds.get("value", "")
+    elif isinstance(ds, str):
+        record["description"] = ds
+
     # Handle first_sentence (may be dict or str)
     fs = data.get("first_sentence")
     if isinstance(fs, dict):
@@ -135,6 +143,8 @@ def compute_answers(records):
     # Convert date strings to datetime
     df["publish_date"] = pd.to_datetime(df["publish_date"], errors="coerce")
     df["last_modified"] = pd.to_datetime(df["last_modified"], errors="coerce")
+
+    df.to_csv("books.csv", index=False)
 
     # Remove any duplicate ISBN rows
     df = df.drop_duplicates(subset=["isbn"])
@@ -201,11 +211,20 @@ def compute_answers(records):
     answers[8] = {"length": longest_len, "words": longest_words, "titles": titles_with}
 
     # Q9
-    if not df["publish_date"].isna().all():
-        idx = df["publish_date"].idxmax()
-        answers[9] = (df.at[idx, "title"], df.at[idx, "publish_date"].date())
-    else:
+    # השלב הראשון - להוריד ספרים שאין להם publish_date תקני
+    valid_dates_df = df.dropna(subset=["publish_date"])
+
+    # אם אין אף ספר עם תאריך תקני
+    if valid_dates_df.empty:
         answers[9] = (None, None)
+    else:
+        # נסה לסדר לפי publish_date בצורה יורדת
+        valid_dates_df = valid_dates_df.sort_values("publish_date", ascending=False)
+
+        # קח את השורה הראשונה אחרי המיון
+        latest_book = valid_dates_df.iloc[0]
+
+        answers[9] = (latest_book["title"], latest_book["publish_date"].date())
 
     # Q10
     answers[10] = int(df["last_modified"].dt.year.value_counts().idxmax())
@@ -278,8 +297,8 @@ def save_answers(answers, path):
         )
 
     # Also print to console
-    with open(path, "r", encoding="utf-8") as f:
-        print(f.read())
+    # with open(path, "r", encoding="utf-8") as f:
+    #     print(f.read())
 
 
 # ─── Main entry point ─────────────────────────────────────────────────────────────
