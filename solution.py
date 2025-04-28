@@ -115,19 +115,14 @@ def flatten_record(isbn, data):
     elif isinstance(ds, str):
         record["description"] = ds
 
-    # Handle first_sentence (may be dict or str)
-    fs = data.get("first_sentence")
-    if isinstance(fs, dict):
-        record["first_sentence"] = fs.get("value", "")
-    elif isinstance(fs, str):
-        record["first_sentence"] = fs
 
-    # If first_sentence still empty, try excerpts
-    for excerpt in data.get("excerpts", []):
-        text = excerpt.get("text")
-        if text and not record["first_sentence"]:
-            record["first_sentence"] = text
-            break
+   # First Sentence (from excerpts)
+    excerpts = data.get("excerpts", [])
+    if isinstance(excerpts, list):
+        for excerpt in excerpts:
+            if excerpt.get("first_sentence") is True and excerpt.get("text"):
+                record["first_sentence"] = excerpt["text"]
+                break
 
     return record
 
@@ -188,27 +183,42 @@ def compute_answers(records):
         answers[7] = (None, 0)
 
     # Q8
+   # יוצרים טקסט מאוחד
     combined_text = (
         df["description"].fillna("") + " " + df["first_sentence"].fillna("")
     ).astype(str)
-    stripped = combined_text.apply(lambda txt: re.sub(r"[^\w\s]", "", txt))
-    words = stripped.str.split().explode().dropna().unique().tolist()
-    longest_len = max((len(w) for w in words), default=0)
-    longest_words = [w for w in words if len(w) == longest_len]
+
+    # מנקים סימני פיסוק גם בטקסט וגם במילים
+    stripped_combined = combined_text.str.lower().apply(lambda txt: re.sub(r"[^\w\s]", "", txt.replace("-", " ")))
+    
+    # פיצול למילים
+    words = stripped_combined.str.split().explode().dropna()
+
+    # חישוב המילה הארוכה ביותר
+    unique_words = words.unique().tolist()
+    longest_len = max((len(w) for w in unique_words), default=0)
+    longest_words = [w for w in unique_words if len(w) == longest_len]
+
+    # חיפוש המילה הארוכה בטקסטים המנוקים
+    book_matches = []
+
     if longest_words:
-        pattern = "|".join(re.escape(w) for w in longest_words)
-        titles_with = (
-            df[
-                df["description"].str.contains(pattern, na=False)
-                | df["first_sentence"].str.contains(pattern, na=False)
-            ]["title"]
-            .dropna()
-            .unique()
-            .tolist()
-        )
-    else:
-        titles_with = []
-    answers[8] = {"length": longest_len, "words": longest_words, "titles": titles_with}
+        for idx, clean_text in stripped_combined.items():
+            for word in longest_words:
+                if word in clean_text:
+                    title = df.at[idx, "title"]
+                    if pd.notna(title):
+                        book_matches.append(title)
+                    break
+
+    # הסרת כפילויות
+    book_matches = list(set(book_matches))
+
+    answers[8] = {
+        "length": longest_len,
+        "words": longest_words,
+        "titles": book_matches,
+    }
 
     # Q9
     # השלב הראשון - להוריד ספרים שאין להם publish_date תקני

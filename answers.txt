@@ -214,8 +214,8 @@
    - Ace: 1
 6. Median number of pages: 339.0
 7. Month with most published books: May (42 books)
-8. Longest word length: 34 Words: ['alltooeagertocommunicateatalltimes']
-   Appears in titles: []
+8. Longest word length: 18 Words: ['disastrousfranklin']
+   Appears in titles: ['Strange Things']
 9. Most recently published book: Dearly - 2021-11-02
 10. Year of most updated entry: 2022
 11. Second book for top author: Royal Assassin (The Farseer Trilogy)
