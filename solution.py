@@ -19,7 +19,7 @@ from datetime import datetime
 import requests
 import pandas as pd
 
-# ─── Configuration ────────────────────────────────────────────────────────────────
+# ─── Configuration ────────────────────────────────────────────────────────
 ISBN_FILE = "books-isbns.txt"
 CACHE_FILE = "cache.json"
 OUTPUT_FILE = "answers.txt"
@@ -125,7 +125,7 @@ def flatten_record(isbn, data):
     return record
 
 
-# ─── Step 5: Process all ISBNs and compute answers ───────────────────────────────
+# ─── Step 5: Process all ISBNs and compute answers ────────────────────────────
 def create_dataframe(records):
     """
     Build a DataFrame from the list of records.
@@ -305,8 +305,8 @@ def save_answers(answers, path):
         )
 
     # Also print to console
-    # with open(path, "r", encoding="utf-8") as f:
-    #     print(f.read())
+    with open(path, "r", encoding="utf-8") as f:
+        print(f.read())
 
 
 # ─── Main entry point ─────────────────────────────────────────────────────────────
