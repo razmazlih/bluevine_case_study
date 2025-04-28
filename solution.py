@@ -137,6 +137,8 @@ def create_dataframe(records):
     
     df = df.drop_duplicates(subset=["isbn"])
 
+    df.to_csv("books.csv", index=False, encoding="utf-8")
+
     return df
 
 
@@ -320,7 +322,14 @@ def main():
     records = []
     for isbn in isbns:
         raw = fetch_book_data(isbn, cache)
-        records.append(flatten_record(isbn, raw))
+        rec = flatten_record(isbn, raw)
+        non_empty = [
+            value for key, value in rec.items()
+            if key != "isbn" and bool(value)
+        ]
+        if non_empty:
+            records.append(rec)
+        
 
     # Update cache
     save_cache(cache, CACHE_FILE)

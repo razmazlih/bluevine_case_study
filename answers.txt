@@ -1,6 +1,6 @@
 1. Number of different books: 472
 2. Book with most ISBNs: The Night Circus (14 ISBNs)
-3. Books without Goodreads ID: 654
+3. Books without Goodreads ID: 460
 4. Books with more than one author: 129
 5. Books per publisher:
    - harpercollins: 177
