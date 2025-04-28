@@ -197,8 +197,8 @@ def answer_eight(df):
     words = stripped_combined.str.split().explode().dropna()
 
     unique_words = words.unique().tolist()
-    longest_len = max((len(w) for w in unique_words), default=0)
-    longest_words = [w for w in unique_words if len(w) == longest_len]
+    longest_len = max((len(word) for word in unique_words), default=0)
+    longest_words = [word for word in unique_words if len(word) == longest_len]
 
     book_matches = []
 
